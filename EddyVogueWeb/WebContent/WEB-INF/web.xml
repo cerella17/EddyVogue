@@ -28,4 +28,13 @@
     <servlet-name>CartControl</servlet-name>
     <url-pattern>/carrello</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AddProduct</servlet-name>
+    <servlet-class>eddy.vogue.control.AddProductControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProduct</servlet-name>
+    <url-pattern>/addproduct</url-pattern>
+  </servlet-mapping>
 </web-app>

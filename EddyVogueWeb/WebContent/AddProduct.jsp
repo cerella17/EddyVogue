@@ -16,7 +16,7 @@
 <body>
 	
 	<h2>Insert</h2>
-	<form action="product" method="post">
+	<form action="addproduct" method="post">
 		<input type="hidden" name="action" value="insert"> 
 		
 		<label for="name">Name:</label><br> 
