@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+body{
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topleft{
+    display: flex;
+    padding-top: 20px;
+}
+
+.topright{
+    display: flex;
+    padding-top: 20px;
+}
+
+.logo{
+    border-radius: 100px;
+    width: 90px;
+    height: 90px;
+}
+
+.user{
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.nav{
+    z-index: 1;
+    list-style:none;
+    text-align:center;
+    padding-inline-start: 0px;
+}
+
+.nav li{
+    display:inline;
+}
+
+.nav a{
+    color: black;
+    text-decoration: none;
+    font-family: 'Sen', sans-serif;
+    font-size: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+    display:inline-block;
+    padding:10px;
+}
+
+.mediahome{
+    height: 80vh;
+    width: 100%;
+    object-fit: cover;
+    overflow: none;
+}
+
+.arrow{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    bottom: 1px;    
+}
+
+.colum{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.imgbox{
+    border-radius: 30px;
+    width: 500px;
+    height: 720px;
+    margin: 20px; 
+}
+
+.card {
+    display: inline;
+    position: relative;
+    text-align: center;
+}
