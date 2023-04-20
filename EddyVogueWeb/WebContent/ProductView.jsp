@@ -18,12 +18,11 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,eddy.vogue.model.*"%>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Storage DS/BF</title>
+	<%@include file="/includes/Head.jsp"%>
 </head>
 
 <body>
+    <%@include file="/includes/NavBar.jsp"%>
 	<h2>Products</h2>
 	<a href="product">List</a>
 	<table border="1">
