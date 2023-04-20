@@ -1,3 +1,8 @@
+ <style type="text/css">
+ <!--
+ @import url("index.css");
+ -->
+ </style>
 <footer>
 
         <div class="footer-container" >

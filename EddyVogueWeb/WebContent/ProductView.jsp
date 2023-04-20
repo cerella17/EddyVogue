@@ -19,11 +19,35 @@
 
 <head>
 	<%@include file="/includes/Head.jsp"%>
+	<link rel="stylesheet" href="index.css">
+	
 </head>
 
 <body>
     <%@include file="/includes/NavBar.jsp"%>
-	<h2>Products</h2>
+     <div class="mediahome">
+        <video class="mediahome" autoplay muted loop>
+            <source src="video/balenciaga.mp4" type="video/mp4">
+        </video>
+
+    </div>
+      
+    <div class="colum">
+
+        <div class="card">
+            <a href="novita.html" > <img class="imgbox" src="img/novita.jpg"></a>
+        </div>
+
+        <div class="card">
+            <a href="donna.html" > <img class="imgbox" src="img/donna.jpg"></a>
+        </div>
+        
+        <div class="card">
+            <a href="uomo.html" > <img class="imgbox" src="img/uomo.jpg"></a>
+        </div>
+
+    </div>
+	<h2>Prodotiiiii</h2>
 	<a href="product">List</a>
 	<table border="1">
 		<tr>
@@ -83,6 +107,7 @@
 		}
 	%>
 	
+	    <%@include file="/includes/Footer.jsp"%>
 	
 </body>
 </html>

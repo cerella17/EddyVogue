@@ -21,14 +21,14 @@ public class ProductModelDS implements ProductModel {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/storage");
+			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
 	}
 
-	private static final String TABLE_NAME = "product";
+	private static final String TABLE_NAME = "Prodotto";
 
 	@Override
 	public synchronized void doSave(ProductBean product) throws SQLException {
@@ -37,7 +37,7 @@ public class ProductModelDS implements ProductModel {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ProductModelDS.TABLE_NAME
-				+ " (NAME, DESCRIPTION, PRICE, QUANTITY) VALUES (?, ?, ?, ?)";
+				+ " (Nome, Tipologia,Descrizione, Prezzo, Quantita,Genere) VALUES (?, ?, ?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
@@ -68,7 +68,7 @@ public class ProductModelDS implements ProductModel {
 
 		ProductBean bean = new ProductBean();
 
-		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE CODE = ?";
+		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -78,11 +78,12 @@ public class ProductModelDS implements ProductModel {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				bean.setCode(rs.getInt("CODE"));
-				bean.setName(rs.getString("NAME"));
-				bean.setDescription(rs.getString("DESCRIPTION"));
-				bean.setPrice(rs.getInt("PRICE"));
-				bean.setQuantity(rs.getInt("QUANTITY"));
+
+				bean.setCode(rs.getInt("ID_Prodotto"));
+				bean.setName(rs.getString("Nome"));
+				bean.setDescription(rs.getString("Descrizione"));
+				bean.setPrice(rs.getInt("Prezzo"));
+				bean.setQuantity(rs.getInt("Quantita"));
 			}
 
 		} finally {
@@ -104,7 +105,7 @@ public class ProductModelDS implements ProductModel {
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + ProductModelDS.TABLE_NAME + " WHERE CODE = ?";
+		String deleteSQL = "DELETE FROM " + ProductModelDS.TABLE_NAME + " WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -147,11 +148,11 @@ public class ProductModelDS implements ProductModel {
 			while (rs.next()) {
 				ProductBean bean = new ProductBean();
 
-				bean.setCode(rs.getInt("CODE"));
-				bean.setName(rs.getString("NAME"));
-				bean.setDescription(rs.getString("DESCRIPTION"));
-				bean.setPrice(rs.getInt("PRICE"));
-				bean.setQuantity(rs.getInt("QUANTITY"));
+				bean.setCode(rs.getInt("ID_Prodotto"));
+				bean.setName(rs.getString("Nome"));
+				bean.setDescription(rs.getString("Descrizione"));
+				bean.setPrice(rs.getInt("Prezzo"));
+				bean.setQuantity(rs.getInt("Quantita"));
 				products.add(bean);
 			}
 

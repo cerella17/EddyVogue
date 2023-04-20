@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class ProductModelDM implements ProductModel {
 
-	private static final String TABLE_NAME = "product";
+	private static final String TABLE_NAME = "Prodotto";
 
 	@Override
 	public synchronized void doSave(ProductBean product) throws SQLException {
@@ -18,7 +18,7 @@ public class ProductModelDM implements ProductModel {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ProductModelDM.TABLE_NAME
-				+ " (Nome, Tipologia,Descrizione, Prezzo, Quantita,Genere) VALUES (?, ?, ?, ?)";
+				+ " (Nome, Tipologia,Descrizione, Prezzo, Quantita,Genere) VALUES (?, ?, ?, ?, ?, ?)";
 
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
@@ -125,7 +125,7 @@ public class ProductModelDM implements ProductModel {
 			while (rs.next()) {
 				ProductBean bean = new ProductBean();
 
-				bean.setCode(rs.getInt("CODE"));
+				bean.setCode(rs.getInt("ID_Prodotto"));
 				bean.setName(rs.getString("Nome"));
 				bean.setDescription(rs.getString("Descrizione"));
 				bean.setPrice(rs.getInt("Prezzo"));
