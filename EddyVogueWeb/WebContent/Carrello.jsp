@@ -21,18 +21,18 @@ ProductBean product = (ProductBean) request.getAttribute("product");
 <body>
 	
 	<% if(cart != null) { %>
-		<h2>Cart</h2>
+		<h2>Carrello</h2>
 		<table border="1">
 		<tr>
-			<th>Name</th>
-			<th>Action</th>
+			<th>Nome</th>
+			<th>Azione</th>
 		</tr>
 		<% List<ProductBean> prodcart = cart.getProducts(); 	
 		   for(ProductBean beancart: prodcart) {
 		%>
 		<tr>
 			<td><%=beancart.getName()%></td>
-			<td><a href="carrello?action=deleteC&id=<%=beancart.getCode()%>">Delete from cart</a></td>
+			<td><a href="carrello?action=deleteC&id=<%=beancart.getCode()%>">Rimuovi</a></td>
 		</tr>
 		<%} %>
 	</table>		

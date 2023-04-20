@@ -19,7 +19,7 @@
 
 <head>
 	<%@include file="/includes/Head.jsp"%>
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="styles/home.css">
 	
 </head>
 
@@ -35,77 +35,42 @@
     <div class="colum">
 
         <div class="card">
-            <a href="novita.html" > <img class="imgbox" src="img/novita.jpg"></a>
+            <a href="" > <img class="imgbox" src="img/novita.jpg"></a>
         </div>
 
         <div class="card">
-            <a href="donna.html" > <img class="imgbox" src="img/donna.jpg"></a>
+            <a href="" > <img class="imgbox" src="img/donna.jpg"></a>
         </div>
         
         <div class="card">
-            <a href="uomo.html" > <img class="imgbox" src="img/uomo.jpg"></a>
+            <a href="" > <img class="imgbox" src="img/uomo.jpg"></a>
         </div>
 
     </div>
-	<h2>Prodotiiiii</h2>
-	<a href="product">List</a>
-	<table border="1">
-		<tr>
-			<th>Code <a href="product?sort=code">Sort</a></th>
-			<th>Name <a href="product?sort=name">Sort</a></th>
-			<th>Description <a href="product?sort=description">Sort</a></th>
-			<th>Action</th>
-		</tr>
-		<%
+    
+    <div class="product-container">
+    <%
 			if (products != null && products.size() != 0) {
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
 					ProductBean bean = (ProductBean) it.next();
 		%>
-		<tr>
-			<td><%=bean.getCode()%></td>
-			<td><%=bean.getName()%></td>
-			<td><%=bean.getDescription()%></td>
-			<td><a href="product?action=delete&id=<%=bean.getCode()%>">Delete</a><br>
-				<a href="product?action=read&id=<%=bean.getCode()%>">Details</a><br>
-				<a href="product?action=addC&id=<%=bean.getCode()%>">Add to cart</a>
-				</td>
-		</tr>
-		<%
+        <div class="product">
+            <a href=""> <img class="imgbox" src="img/Scarpa1.png" /></a>
+                <div class="description">
+                    <p style="font-weight: bold; margin-bottom: 0"><%=bean.getName()%></p>
+                    <p style="margin-top: 0"><%=bean.getPrice()%>€</p>
+                    <a href="product?action=addC&id=<%=bean.getCode()%>">Aggiungi al carrello</a>
+                </div>
+        </div>
+     
+        <%
 				}
-			} else {
+			} 
 		%>
-		<tr>
-			<td colspan="6">No products available</td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
+		   </div>
 	
-	<h2>Details</h2>
-	<%
-		if (product != null) {
-	%>
-	<table border="1">
-		<tr>
-			<th>Code</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Quantity</th>
-		</tr>
-		<tr>
-			<td><%=product.getCode()%></td>
-			<td><%=product.getName()%></td>
-			<td><%=product.getDescription()%></td>
-			<td><%=product.getPrice()%></td>
-			<td><%=product.getQuantity()%></td>
-		</tr>
-	</table>
-	<%
-		}
-	%>
+	
 	
 	    <%@include file="/includes/Footer.jsp"%>
 	

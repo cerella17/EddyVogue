@@ -10,7 +10,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="ProductStyle.css" rel="stylesheet" type="text/css">
-	<title>Storage DS/BF</title>
+	<title>Aggiungi prodotto</title>
 </head>
 
 <body>
@@ -19,17 +19,23 @@
 	<form action="addproduct" method="post">
 		<input type="hidden" name="action" value="insert"> 
 		
-		<label for="name">Name:</label><br> 
-		<input name="name" type="text" maxlength="20" required placeholder="enter name"><br> 
+		<label for="Nome">Nome:</label><br> 
+		<input name="Nome" type="text" maxlength="20" required placeholder="Nome"><br> 
 		
-		<label for="description">Description:</label><br>
-		<textarea name="description" maxlength="100" rows="3" required placeholder="enter description"></textarea><br>
+		<label for="Tipologia">Tipologia:</label><br>
+		<textarea name="Tipologia" maxlength="100" rows="3" required placeholder="Tipologia"></textarea><br>
 		
-		<label for="price">Price:</label><br> 
-		<input name="price" type="number" min="0" value="0" required><br>
+		<label for="description">Descrizione:</label><br>
+		<textarea name="Descrizione" maxlength="100" rows="3" required placeholder="Descrizione"></textarea><br>
+		
+		<label for="Prezzo">Prezzo:</label><br> 
+		<input name="Prezzo" type="number" min="0" value="0" required><br>
 
-		<label for="quantity">Quantity:</label><br> 
-		<input name="quantity" type="number" min="1" value="1" required><br>
+		<label for="Quantita">Quantita:</label><br> 
+		<input name="Quantita" type="number" min="1" value="1" required><br>
+		
+			<label for="Genere">Genere:</label><br>
+		<textarea name="Genere" maxlength="100" rows="3" required placeholder="Genere"></textarea><br>
 
 		<input type="submit" value="Add"><input type="reset" value="Reset">
 	</form>
