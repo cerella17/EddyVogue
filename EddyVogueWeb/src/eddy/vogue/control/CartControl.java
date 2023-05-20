@@ -17,18 +17,15 @@ import eddy.vogue.model.*;
 public class CartControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// ProductModelDS usa il DataSource
-	// ProductModelDM usa il DriverManager	
-	static boolean isDataSource = true;
+
+
 	
 	static ProductModel model;
 	
 	static {
-		if (isDataSource) {
-			model = new ProductModelDS();
-		} else {
-			model = new ProductModelDM();
-		}
+		
+			model = new ProductDao();
+		
 	}
 	
 	public CartControl() {
@@ -52,6 +49,10 @@ public class CartControl extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					cart.deleteProduct(model.doRetrieveByKey(id));
 				} 
+				 else if (action.equalsIgnoreCase("addC")) {
+						int id = Integer.parseInt(request.getParameter("id"));
+						cart.addProduct(model.doRetrieveByKey(id));
+					}
 			}
 				
 						

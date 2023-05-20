@@ -17,18 +17,13 @@ import eddy.vogue.model.*;
 public class AddProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// ProductModelDS usa il DataSource
-	// ProductModelDM usa il DriverManager	
-	static boolean isDataSource = true;
+
 	
 	static ProductModel model;
 	
 	static {
-		if (isDataSource) {
-			model = new ProductModelDS();
-		} else {
-			model = new ProductModelDM();
-		}
+			model = new ProductDao();
+		
 	}
 	
 	public AddProductControl() {
@@ -44,7 +39,7 @@ public class AddProductControl extends HttpServlet {
 		try {
 			if (action != null) {
 			 if (action.equalsIgnoreCase("insert")) {
-					String name = request.getParameter("name");
+					String name = request.getParameter("Nome");
 					String description = request.getParameter("description");
 					int price = Integer.parseInt(request.getParameter("price"));
 					int quantity = Integer.parseInt(request.getParameter("quantity"));

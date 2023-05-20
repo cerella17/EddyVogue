@@ -9,18 +9,32 @@ public class ProductBean implements Serializable {
 	int code;
 	String name;
 	String description;
+	String tipologia;
+	String genere;
 	int price;
 	int quantity;
+	int quantitaAcquisto;
 
 	public ProductBean() {
 		code = -1;
 		name = "";
 		description = "";
 		quantity = 0;
+		genere = "";
+		tipologia ="";
+		quantitaAcquisto = 1;
 	}
 
 	public int getCode() {
 		return code;
+	}
+
+	public int getQuantitaAcquisto() {
+		return quantitaAcquisto;
+	}
+
+	public void setQuantitaAcquisto(int quantitaAcquisto) {
+		this.quantitaAcquisto = quantitaAcquisto;
 	}
 
 	public void setCode(int code) {
@@ -33,6 +47,21 @@ public class ProductBean implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getTipologia() {
+		return tipologia;
+	}
+
+	public void setTipologia(String tipologia) {
+		this.tipologia = tipologia;
+	}
+	public String getGenere() {
+		return genere;
+	}
+
+	public void setGenere(String genere) {
+		this.genere = genere;
 	}
 
 	public String getDescription() {

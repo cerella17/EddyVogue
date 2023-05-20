@@ -11,6 +11,8 @@
 	ProductBean product = (ProductBean) request.getAttribute("product");
 	
 	Cart cart = (Cart) request.getAttribute("cart");
+	
+	
 %>
 
 <!DOCTYPE html>
@@ -56,7 +58,7 @@
 					ProductBean bean = (ProductBean) it.next();
 		%>
         <div class="product">
-            <a href=""> <img class="imgbox" src="img/Scarpa1.png" /></a>
+            <a href="./Prodotto.jsp?id=<%=bean.getCode()%>"> <img class="imgbox" src="img/Scarpa1.png" /></a>
                 <div class="description">
                     <p style="font-weight: bold; margin-bottom: 0"><%=bean.getName()%></p>
                     <p style="margin-top: 0"><%=bean.getPrice()%>€</p>

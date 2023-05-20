@@ -12,7 +12,15 @@ public class Cart {
 	}
 	
 	public void addProduct(ProductBean product) {
-		products.add(product);
+	
+		for(ProductBean prod : products) {
+			if(prod.getCode() == product.getCode()) {
+				prod.setQuantitaAcquisto(prod.getQuantitaAcquisto()+1);
+				return ;
+			}
+		}
+		
+		products.add(product); 
 	}
 	
 	public void deleteProduct(ProductBean product) {
