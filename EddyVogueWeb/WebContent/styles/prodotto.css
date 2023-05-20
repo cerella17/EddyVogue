@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 300;
+}
+
+.middle {
+  padding-top: 5px;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topleft {
+  display: flex;
+  flex: 1;
+  padding-top: 20px;
+}
+
+.topright {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.logo {
+  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+}
+
+.user {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.nav {
+  z-index: 1;
+  list-style: none;
+  text-align: center;
+  padding-inline-start: 0px;
+}
+
+.nav li {
+  display: inline;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  padding: 5px;
+}
+
+.product {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-image img {
+  width: 500px;
+}
+
+.product-settings {
+  font-family: "Sen", sans-serif;
+  border-radius: 20px;
+  padding: 20px;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.frist {
+  margin: 0;
+  font-weight: 800;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.second {
+  margin: 10px 10px 0px 0;
+  font-weight: 400;
+  font-size: 18px;
+  color:gray;
+}
+
+.third {
+  margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.color {
+  margin-top: 20px;
+}
+
+.color #c1 {
+  font-weight: bold;
+}
+
+.btn-color {
+  margin-top: 10px;
+}
+
+.btn-color #b1 {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 100px;
+  height: 35px;
+  width: 35px;
+}
+
+.btn-color #b2 {
+  cursor: pointer;
+  background-color: black;
+  border: 0;
+  border-radius: 100px;
+  height: 35px;
+  width: 35px;
+}
+
+.btn-color #b3 {
+  cursor: pointer;
+  background-color: #b76e79;
+  border: 0;
+  border-radius: 100px;
+  height: 35px;
+  width: 35px;
+}
+
+.size {
+  margin-top: 20px;
+}
+
+.size #tit {
+  font-weight: bold;
+}
+
+.size-btn {
+  margin-top: 10px;
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.size-btn button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.size-btn button:hover {
+  background-color: black;
+  border: 0;
+  color: white;
+}
+
+.buttons {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons #add {
+  margin: auto;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  background-color: black;
+}
+
+.buttons #add:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.footer-container {
+  background-color: #1f201c;
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+.footer-logo {
+  margin-top: 1%;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container-menu {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+.footer-menu {
+  width: 20%;
+  margin: auto;
+  font-family: "Sen", sans-serif;
+  display: inline;
+  position: relative;
+  text-align: center;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: white;
+  margin: 10%;
+}
+
+.footer-menu p {
+  color: white;
+  font-weight: bold;
+}
+
+.footer-menu ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-menu:nth-child(2) {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.copy {
+  background-color: #1f201c;
+  color: white;
+  font-family: "Sen", sans-serif;
+  display: flex;
+  justify-content: center;
+}
