@@ -64,9 +64,9 @@ public class CartControl extends HttpServlet {
 			}
 				
 						
-		} catch (SQLException e) {
+		} catch (SQLException e) 
 			
-		}
+		
 
 		request.getSession().setAttribute("cart", cart);
 		request.setAttribute("cart", cart);
