@@ -169,7 +169,7 @@ public class ProductDao implements ProductModel {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ProductBean> products = new LinkedList<ProductBean>();
+		Collection<ProductBean> products = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + ProductDao.TABLE_NAME;
 
@@ -213,7 +213,7 @@ public class ProductDao implements ProductModel {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ProductBean> products = new LinkedList<ProductBean>();
+		Collection<ProductBean> products = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + ProductDao.TABLE_NAME +" WHERE Genere='UOMO'";
 
@@ -256,7 +256,7 @@ public synchronized Collection<ProductBean> doRetrieveWMan(String order) throws 
 	Connection connection = null;
 	PreparedStatement preparedStatement = null;
 
-	Collection<ProductBean> products = new LinkedList<ProductBean>();
+	Collection<ProductBean> products = new LinkedList<>();
 
 	String selectSQL = "SELECT * FROM " + ProductDao.TABLE_NAME +" WHERE Genere='DONNA'";
 
