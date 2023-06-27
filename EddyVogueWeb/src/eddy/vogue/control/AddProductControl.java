@@ -37,8 +37,7 @@ public class AddProductControl extends HttpServlet {
 		String action = request.getParameter("action");
 
 		try {
-			if (action != null) {
-			 if (action.equalsIgnoreCase("insert")) {
+			if ((action != null)  && (action.equalsIgnoreCase("insert"))) {
 					String name = request.getParameter("Nome");
 					String description = request.getParameter("description");
 					int price = Integer.parseInt(request.getParameter("price"));
@@ -53,7 +52,7 @@ public class AddProductControl extends HttpServlet {
 				}
 			}			
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			
 		}
 
 	
