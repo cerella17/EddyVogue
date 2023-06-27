@@ -3,15 +3,15 @@ function formValidate(event) {
   event.preventDefault(); // Blocca l'invio del modulo
   // Recupera gli elementi del modulo
 
-  var email = document.getElementById("email");
-  var nome = document.getElementById("nome");
-  var cognome = document.getElementById("cognome");
-  var indirizzo = document.getElementById("indirizzo");
-  var citta = document.getElementById("citta");
-  var provincia = document.getElementById("provincia");
-  var cap = document.getElementById("CAP");
-  var pass = document.getElementById("pass");
-  var isValid = true;
+  let email = document.getElementById("email");
+  let nome = document.getElementById("nome");
+  let cognome = document.getElementById("cognome");
+  let indirizzo = document.getElementById("indirizzo");
+  let citta = document.getElementById("citta");
+  let provincia = document.getElementById("provincia");
+  let cap = document.getElementById("CAP");
+  let pass = document.getElementById("pass");
+  let isValid = true;
 
   // Esegue la validazione di ogni campo e tiene traccia del risultato complessivo
   isValid = email_validate(email, "email-error") && isValid;
@@ -25,19 +25,19 @@ function formValidate(event) {
 
   // Se ci sono errori, impedisce l'invio del modulo
   if (!isValid) {
-    return false;
+    return isValid;
   }
-  return true;
+  return isValid;
 }
 function formValidateProfilo(event) {
   event.preventDefault(); // Blocca l'invio del modulo
   // Recupera gli elementi del modulo
 
-  var email = document.getElementById("email");
-  var nome = document.getElementById("nome");
-  var cognome = document.getElementById("cognome");
+  let email = document.getElementById("email");
+  let nome = document.getElementById("nome");
+  let cognome = document.getElementById("cognome");
 
-  var isValid = true;
+  let isValid = true;
 
   // Esegue la validazione di ogni campo e tiene traccia del risultato complessivo
   isValid = email_validate(email, "email-error") && isValid;
@@ -46,18 +46,18 @@ function formValidateProfilo(event) {
 
   // Se ci sono errori, impedisce l'invio del modulo
   if (!isValid) {
-    return false;
+    return isValid;
   }
-  return true;
+  return isValid;
 }
 function formValidateIndirizzo(event) {
   event.preventDefault(); // Blocca l'invio del modulo
   // Recupera gli elementi del modulo
-  var indirizzo = document.getElementById("indirizzo");
-  var citta = document.getElementById("citta");
-  var provincia = document.getElementById("provincia");
-  var cap = document.getElementById("CAP");
-  var isValid = true;
+  let indirizzo = document.getElementById("indirizzo");
+  let citta = document.getElementById("citta");
+  let provincia = document.getElementById("provincia");
+  let cap = document.getElementById("CAP");
+  let isValid = true;
   // Esegue la validazione di ogni campo e tiene traccia del risultato complessivo
   isValid = alphanumeric(indirizzo, "indirizzo-error", "indirizzo") && isValid;
   isValid = allLetter(citta, "citta-error", "citta") && isValid;
@@ -66,16 +66,16 @@ function formValidateIndirizzo(event) {
 
   // Se ci sono errori, impedisce l'invio del modulo
   if (!isValid) {
-    return false;
+    return isValid;
   }
-  return true;
+  return isValid;
 }
 // Funzione di validazione dell'email
 function email_validate(email, errorId) {
-  var valuemail = email.value;
-  var atpos = valuemail.indexOf("@");
-  var dotpos = valuemail.lastIndexOf(".");
-  var emailError = document.getElementById(errorId);
+  let valuemail = email.value;
+  let atpos = valuemail.indexOf("@");
+  let dotpos = valuemail.lastIndexOf(".");
+  let emailError = document.getElementById(errorId);
 
   // Verifica se l'email è valida
   if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= valuemail.length) {
