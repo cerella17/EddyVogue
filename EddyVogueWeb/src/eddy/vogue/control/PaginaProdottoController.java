@@ -33,9 +33,9 @@ public class PaginaProdottoController extends HttpServlet {
 			ProductBean product = productDao.doRetrieveByKey(id);
 			request.setAttribute("product", product);
 			request.getRequestDispatcher("Prodotto.jsp").forward(request, response);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) 
+			
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
