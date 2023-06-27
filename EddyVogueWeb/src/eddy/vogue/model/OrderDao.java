@@ -4,14 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.time.*;
+
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -23,7 +19,6 @@ import eddy.vogue.model.ProductBean;
 import eddy.vogue.model.Cart;
 
 public class OrderDao {
-	//private static final String TABLE_INFO_PRODOTTO = "INFO_PRODOTTO";
 	private static DataSource ds;
 
 	static {
@@ -33,9 +28,8 @@ public class OrderDao {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
+		} catch (NamingException e) 
+		
 	}
 	
 	private static final String TABLE_ORDINE = "Ordine";
