@@ -1,5 +1,5 @@
 window.onload=()=>{
-var doc = new jsPDF()
+let doc = new jsPDF()
 
 
 
