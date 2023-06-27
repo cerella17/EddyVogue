@@ -23,6 +23,8 @@
   <head>
     	<%@include file="/includes/Head.jsp"%>
 <link href="styles/home.css" rel="stylesheet" type="text/css">
+            <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+            <script src="script/jquery.js"></script>
     <title>Eddy Vogue</title>
   </head>
 

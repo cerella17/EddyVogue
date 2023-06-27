@@ -19,12 +19,26 @@
 <html lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,eddy.vogue.model.*"%>
 
+
   <body>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="styles/user.css" />
       <script src="script/registration-form-validate.js"></script>
-                          <script src="script/modifica.js"></script>
+        <script src="script/modifica.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+<script type="text/javascript">
+       function fattura(prezzo,ordine){
+    	   var doc = new jsPDF()
+	
+    	    doc.text("Eddy Vogue p.Iva 0623823783 Fattura num°12015 ", 10, 10)
+    	    doc.text(ordine, 10, 20)
+    	        doc.text("iva 22%", 10, 30)
+    	    doc.text(prezzo, 10, 40)
+
+    	doc.save('fattura.pdf')	
+      }
+  </script>
       
       
       <title>Eddy Vogue</title>
@@ -141,6 +155,8 @@
               <th>Prezzo</th>
               <th>Stato</th>
               <th>Data ordine</th>
+              <th>Fattura</th>
+              
             </tr>
 
 <%
@@ -157,7 +173,7 @@
               <td id="status">Spedito</td>
               <td><%=bean.getData()%></td>
               <td>
-                <a href=""><img src="icons/3dots.svg" alt="" /></a>
+                <button onclick="fattura('<%=bean.getPb().getName()%>','<%=bean.getPrezzo()%>')" id="btnFatt">Scarica</button>
               </td>
             </tr>
             <%

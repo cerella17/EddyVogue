@@ -52,7 +52,10 @@ ProductBean product = (ProductBean) request.getAttribute("product");
           <span id="tit">TAGLIA</span>
           <span>- Taglia unica</span>
         </div>
-        
+        <!-- <div class="size-btn">
+          
+          <button class="btn" type="submit">Taglia unica</button>
+        </div> -->
       </div> 
 
       <div class="buttons">

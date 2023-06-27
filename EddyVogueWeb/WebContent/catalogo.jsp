@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <%
+
+
 	Collection<?> products = (Collection<?>) request.getAttribute("products");
 	if(products == null) {
 		response.sendRedirect("./catalogo");	
@@ -23,6 +25,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/catalogo.css" />
         <link rel="stylesheet" href="styles/home.css" />
+                    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+        
+        <script src="script/index.js"></script>
+        
     
     <title>Eddy Vogue</title>
   </head>
@@ -35,7 +41,19 @@
       <p>IL NOSTO CATALOGO</p>
     </div>
     <div class="wrapper">
-     
+     <div class="filters-container">
+       
+        <div class="searchbar" id="searchbar">
+							<input type="text" name="search" placeholder="Cerca"
+								autocomplete="off" />
+						
+						<div class="searchbar-ajax">
+								<ul>
+									
+								</ul>
+						</div>
+						</div>
+      </div>
 
          
 
