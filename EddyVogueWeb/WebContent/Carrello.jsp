@@ -10,7 +10,6 @@ if (cart == null) {
 	return;
 }
 %>
-
 <!DOCTYPE html>
 <html lang="it">
 <%@ page contentType="text/html; charset=UTF-8"
