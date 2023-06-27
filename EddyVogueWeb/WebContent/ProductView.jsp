@@ -39,21 +39,21 @@
 
     <div class="colum">
       <div class="card">
-        <img class="imgbox" src="img/novita.jpg" />
+        <img alt="image" class="imgbox" src="img/novita.jpg" />
         <div class="overlay">
           <a href="/EddyVogueWeb/catalogo.jsp">Novità</a>
         </div>
       </div>
 
       <div class="card">
-        <img class="imgbox" src="img/donna.jpg" />
+        <img alt="image" class="imgbox" src="img/donna.jpg" />
         <div class="overlay">
           <a href="/EddyVogueWeb/donna.jsp">Donna</a>
         </div>
       </div>
 
       <div class="card">
-        <img class="imgbox" src="img/uomo.jpg" />
+        <img alt="image" class="imgbox" src="img/uomo.jpg" />
         <div class="overlay">
           <a href="/EddyVogueWeb/uomo.jsp">Uomo</a>
         </div>
@@ -85,7 +85,7 @@
     </div>
 
    <div class="imgcontainer">
-      <img src="img/Moda1.jpg" alt="Not Found" />
+      <img alt="image" src="img/Moda1.jpg" alt="Not Found" />
  <a href="/EddyVogueWeb/donna.jsp">Esplora</a>    </div>
 
     <div class="newsletter">
