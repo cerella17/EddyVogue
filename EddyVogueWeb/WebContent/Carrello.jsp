@@ -12,7 +12,7 @@ if (cart == null) {
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <%@ page contentType="text/html; charset=UTF-8"
 	import="java.util.*,eddy.vogue.model.Cart,eddy.vogue.model.ProductBean,eddy.vogue.control.*"%>
 
