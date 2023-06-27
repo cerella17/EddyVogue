@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -292,6 +293,45 @@ public synchronized Collection<ProductBean> doRetrieveWMan(String order) throws 
 	}
 	return products;
 }
+public List<ProductBean> getSearchProducts(String search) throws SQLException {
+	Connection c = null;
+	PreparedStatement p = null;
+	List<ProductBean> products = new ArrayList<>();
+	
+	String query = "SELECT * FROM "+ProductDao.TABLE_NAME 
+			+ " WHERE nome LIKE ? "
+			+ " LIMIT 5"; 
+	
+	try {
+		c = ds.getConnection();
+		p = c.prepareStatement(query);
+		
+		p.setString(1, '%'+search+'%');
+
+		ResultSet rs = p.executeQuery();
+		while (rs.next()) {
+			ProductBean bean = new ProductBean();
+			bean.setCode(rs.getInt("ID_Prodotto"));
+			bean.setName(rs.getString("Nome"));
+			bean.setTipologia(rs.getString("Tipologia"));
+			bean.setGenere(rs.getString("Genere"));
+			bean.setDescription(rs.getString("Descrizione"));
+			bean.setPrice(rs.getInt("Prezzo"));
+			bean.setQuantity(rs.getInt("Quantita"));
+			products.add(bean);
+		}
+	} finally {
+		try {
+			if (p != null)
+				p.close();
+		} finally {
+			if (c != null)
+				c.close();
+		}
+	}
+	return products;
+}
 
 }
+
 
