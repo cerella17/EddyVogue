@@ -107,8 +107,8 @@ public class User extends HttpServlet {
 					request.setAttribute("errors", errors);
 					request.getRequestDispatcher("/login.jsp").forward(request, response);
 				}
-			} catch (SQLException e) {
-			}
+			} catch (SQLException e) 
+			
 			break;
 		}
 		case "registrati": {
@@ -121,8 +121,8 @@ public class User extends HttpServlet {
 					request.getRequestDispatcher("/registrati.jsp").forward(request, response);
 					return;
 				}
-			} catch (SQLException e) {
-			}
+			} catch (SQLException e) 
+			
 			UserBean ub = new UserBean();
 			ub.setNome(nome);
 			ub.setCognome(cognome);
@@ -137,8 +137,8 @@ public class User extends HttpServlet {
 			try {
 				userDao.doSave(ub);
 
-			} catch (SQLException e) {
-			}
+			} catch (SQLException e) 
+			
 			break;
 		}
 		case "updateDati": {
@@ -155,8 +155,8 @@ public class User extends HttpServlet {
 
 
 			
-			} catch (SQLException e) {
-			}
+			} catch (SQLException e) 
+			
 			break;
 		}
 		case "updateIndirizzo": {
@@ -173,8 +173,8 @@ public class User extends HttpServlet {
 
 
 			
-			} catch (SQLException e) {
-			}
+			} catch (SQLException e) 
+			
 			break;
 		}
 			default:
