@@ -11,7 +11,7 @@
     <div class="header">
       <div class="middle">
         <div class="topcentre">
-          <a href="home.html"><img class="logo" src="img/logo.png" /></a>
+          <a href="home.html"><img alt="image" class="logo" src="img/logo.png" /></a>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
         <h1>${pageContext.errorData.statusCode}</h1>
         <h4>Errore</h4>
         <h6>
-          La pagina che stai cercando non esiste o si è verificato un altro errore.
+          La pagina che stai cercando non esiste o si Ã¨ verificato un altro errore.
         </h6>
         <a href="./ProductView.jsp">TORNA ALLA HOME</a>
       </div>
