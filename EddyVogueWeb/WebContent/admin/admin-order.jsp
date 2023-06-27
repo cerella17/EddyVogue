@@ -27,7 +27,7 @@
 
     <div class="header">
       <div class="middle">
-        <img class="logo" src="img/logo.png" />
+        <img alt="image" class="logo" src="img/logo.png" />
       </div>
     </div>
 
