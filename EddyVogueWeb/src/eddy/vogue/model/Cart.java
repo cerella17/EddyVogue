@@ -8,7 +8,7 @@ public class Cart {
 	private List<ProductBean> products;
 	
 	public Cart() {
-		products = new ArrayList<ProductBean>();
+		products = new ArrayList<>();
 	}
 	
 	public void addProduct(ProductBean product) {
