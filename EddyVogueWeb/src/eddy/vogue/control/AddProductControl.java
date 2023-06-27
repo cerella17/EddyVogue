@@ -51,9 +51,9 @@ public class AddProductControl extends HttpServlet {
 					model.doSave(bean);
 				}
 			}			
-		} catch (SQLException e) {
+		} catch (SQLException e) 
 			
-		}
+		
 
 	
 		
