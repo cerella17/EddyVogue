@@ -44,7 +44,7 @@ public class CartControl extends HttpServlet {
 		String action = request.getParameter("action");
 
 		try {
-			System.out.println(action);
+			
 
 			if (action != null) {
 				 if (action.equalsIgnoreCase("deleteC")) {
@@ -65,7 +65,7 @@ public class CartControl extends HttpServlet {
 				
 						
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			
 		}
 
 		request.getSession().setAttribute("cart", cart);
