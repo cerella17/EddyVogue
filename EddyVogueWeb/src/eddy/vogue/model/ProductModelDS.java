@@ -24,9 +24,8 @@ public class ProductDao implements ProductModel {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
+		} catch (NamingException e) 
+		
 	}
 
 	private static final String TABLE_NAME = "Prodotto";
@@ -134,7 +133,7 @@ public class ProductDao implements ProductModel {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ProductBean> products = new LinkedList<ProductBean>();
+		Collection<ProductBean> products = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + ProductDao.TABLE_NAME;
 
