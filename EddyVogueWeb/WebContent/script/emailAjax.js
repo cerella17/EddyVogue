@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	$('email').change(function(){
 		
-		var email = $('#email').val();
+		let email = $('#email').val();
 		$.ajax({
 			type: 'POST',
 			data:{email:email},
