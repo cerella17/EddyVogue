@@ -108,7 +108,6 @@ public class User extends HttpServlet {
 					request.getRequestDispatcher("/login.jsp").forward(request, response);
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 			break;
 		}
@@ -123,7 +122,6 @@ public class User extends HttpServlet {
 					return;
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 			UserBean ub = new UserBean();
 			ub.setNome(nome);
@@ -140,7 +138,6 @@ public class User extends HttpServlet {
 				userDao.doSave(ub);
 
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 			break;
 		}
@@ -159,7 +156,6 @@ public class User extends HttpServlet {
 
 			
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 			break;
 		}
@@ -178,10 +174,11 @@ public class User extends HttpServlet {
 
 			
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 			break;
 		}
+			default:
+				break
 		}
 	}
 
