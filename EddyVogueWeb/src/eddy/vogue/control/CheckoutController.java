@@ -42,8 +42,8 @@ public class CheckoutController extends HttpServlet {
 			request.getRequestDispatcher("/user.jsp").forward(request, response);
 			return;
 
-		} catch (SQLException e) {
-		}
+		} catch (SQLException e) 
+		
 		
 	}
 
