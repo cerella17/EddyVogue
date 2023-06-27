@@ -71,8 +71,8 @@ public class Donnacontroller extends HttpServlet {
 					model.doSave(bean);
 				}
 			}			
-		} catch (SQLException e) {
-		}
+		} catch (SQLException e) 
+		
 
 		request.getSession().setAttribute("cart", cart);
 		request.setAttribute("cart", cart);
@@ -83,8 +83,8 @@ public class Donnacontroller extends HttpServlet {
 		try {
 			request.removeAttribute("products");
 			request.setAttribute("products", model.doRetrieveWMan(sort));
-		} catch (SQLException e) {
-		}
+		} catch (SQLException e) 
+		
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/donna.jsp");
 		dispatcher.forward(request, response);
