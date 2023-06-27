@@ -1,0 +1,201 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css); /*DA RIMUOVERE*/
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 300;
+  margin-bottom: 50px;
+}
+
+.middle {
+  padding-top: 5px;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+.main-menu {
+  border-right: 1px solid #e5e5e5;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 60px;
+  overflow: hidden;
+  -webkit-transition: width 0.05s linear;
+  transition: width 0.05s linear;
+  z-index: 1000;
+}
+
+.main-menu > ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.main-menu li > a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #fff;
+  background-color: #000000;
+}
+
+.order-container {
+  background-color: white;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.order-container h2 {
+  margin-left: 20px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.order-header input {
+  border: 1px solid black;
+  border-radius: 15px;
+  outline: none;
+  height: 20px;
+}
+
+.order-table {
+  margin: auto;
+}
+
+.order-table table {
+  text-align: center;
+}
+
+table td {
+  padding: 15px;
+}
+
+table #status {
+  color: rgb(0, 197, 0);
+}
+
+@media screen and (max-width: 1100px) {
+  .order-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .order-container,
+  table {
+    overflow: scroll;
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+}

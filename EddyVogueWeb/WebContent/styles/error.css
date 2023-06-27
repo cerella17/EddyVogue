@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 300;
+}
+
+.middle {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+}
+
+.container-error {
+  margin-top: 10%;
+}
+
+.error-image {
+  display: flex;
+  justify-content: center;
+}
+
+.error-description {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  padding: 0;
+}
+
+.error-description a {
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+  margin: auto;
+}
+
+.error-description a:hover {
+  background-color: black;
+  color: white;
+  margin: auto;
+  transition: 0.3s background-color ease-in-out;
+}
+
+.error-description h4 {
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .error-description {
+    width: 50%;
+  }
+}

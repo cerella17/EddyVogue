@@ -3,6 +3,18 @@
 body {
   margin: 0;
 }
+.error-message {
+  color: red; /* Colore del testo del messaggio di errore */
+  display: block;
+  margin-top: 5px; /* Spazio superiore per separare il campo dal messaggio di errore */
+  font-size: 14px;
+}
+
+.error-field input {
+  border: 1px solid red; /* Colore del bordo del campo in caso di errore */
+}
+
+
 
 .header {
   display: flex;

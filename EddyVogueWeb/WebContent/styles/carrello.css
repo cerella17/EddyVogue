@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
 
+* {
+  font-family: "Sen", sans-serif;
+}
+
 body {
   margin: 0;
 }
@@ -38,6 +42,10 @@ body {
   height: 70px;
 }
 
+.hamburger {
+  display: none;
+}
+
 .user {
   margin: 10px;
   width: 20px;
@@ -58,7 +66,6 @@ body {
 .nav a {
   color: black;
   text-decoration: none;
-  font-family: "Sen", sans-serif;
   font-size: 16px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
   display: inline-block;
@@ -74,7 +81,7 @@ body {
 .footer-logo {
   margin-top: 1%;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -90,7 +97,6 @@ body {
 .footer-menu {
   width: 20%;
   margin: auto;
-  font-family: "Sen", sans-serif;
   display: inline;
   position: relative;
   text-align: center;
@@ -120,13 +126,11 @@ body {
 .copy {
   background-color: #1f201c;
   color: white;
-  font-family: "Sen", sans-serif;
   display: flex;
   justify-content: center;
 }
 
 .title {
-  font-family: "Sen", sans-serif;
   font-size: 23px;
   display: flex;
   justify-content: center;
@@ -149,17 +153,14 @@ body {
   display: flex;
   flex-direction: row;
   margin: 10px;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px 5px #2222;
+  box-shadow: 0px 0px 10px -4px rgba(77, 77, 77, 0.384);
 }
 
 .item-image a img {
-  border-radius: 20px;
   width: 200px;
 }
 
 .item-info {
-  font-family: "Sen", sans-serif;
   margin: 10px;
   width: 300px;
 }
@@ -171,7 +172,6 @@ body {
 }
 
 .bolded {
-  font-family: "Sen", sans-serif;
   font-weight: bold;
 }
 
@@ -185,15 +185,13 @@ body {
 }
 
 .checkout {
-  border-radius: 15px;
   width: 300px;
   max-height: 300px;
-  box-shadow: 5px 5px 5px 5px #2222;
+  box-shadow: 0px 0px 10px -4px rgba(77, 77, 77, 0.384);
   padding: 20px;
 }
 
 .checkout h6 {
-  font-family: "Sen", sans-serif;
   font-weight: lighter;
   text-align: center;
   font-size: 20px;
@@ -201,21 +199,18 @@ body {
 }
 
 .subtotal {
-  font-family: "Sen", sans-serif;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
 }
 
 .shipping {
-  font-family: "Sen", sans-serif;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
 }
 
 .total {
-  font-family: "Sen", sans-serif;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
@@ -228,11 +223,9 @@ body {
 }
 
 .acquista {
-  font-family: "Sen", sans-serif;
-  background-color: black;
-  color: white;
-  border-radius: 20px;
-  border: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
   margin: auto;
   margin-top: 35px;
   padding: 10px 30px;
@@ -240,10 +233,14 @@ body {
   cursor: pointer;
 }
 
+.acquista:hover {
+  background-color: black;
+  color: white;
+  transition: 0.3s background-color ease-in-out;
+}
+
 .paypal {
-  font-family: "Sen", sans-serif;
   border: 0;
-  border-radius: 20px;
   margin: auto;
   margin-top: 10px;
   display: block;
@@ -265,8 +262,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px 5px #2222;
+  box-shadow: 0px 0px 10px -4px rgba(77, 77, 77, 0.384);
   padding: 10px;
 }
 
@@ -281,16 +277,81 @@ body {
   width: 20px;
 }
 
-.discount-header p {
-  font-family: "Sen", sans-serif;
+.discount-header button {
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .discount input {
   border: 1px solid grey;
-  border-radius: 3px;
   padding: 0 15px;
   width: 90%;
   height: 50px;
   margin: auto;
   font-size: 15px;
+}
+/* inizio css chiuso */
+.discount input {
+  display: none;
+}
+
+.discount img {
+  transform: rotate(180deg);
+}
+/* fine chiuso */
+
+@media screen and (max-width: 1000px) {
+  .item {
+    width: 400px;
+    margin: auto;
+  }
+
+  .products {
+    margin: auto;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cart-container {
+    flex-direction: column-reverse;
+  }
+
+  .item {
+    width: 350px;
+    margin: auto;
+  }
+
+  .products {
+    margin: auto;
+    gap: 30px;
+  }
+
+  .checkout {
+    margin: auto;
+  }
+
+  .discount {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+  .container-menu {
+    flex-direction: column;
+  }
+
+  .footer-menu {
+    width: 100%;
+  }
+
+  .footer-menu:nth-child(2) {
+    border-left: none;
+    border-right: none;
+  }
+
+  .copy {
+    font-size: 12px;
+  }
 }

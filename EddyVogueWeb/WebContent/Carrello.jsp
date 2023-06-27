@@ -42,7 +42,7 @@ if (cart == null) {
 			%>
 			<div class="item">
 				<div class="item-image">
-					<a href=""><img src="img/Scarpa1.png" /></a>
+					<a href=""><img src="getImage?id=<%=beancart.getCode() %>"/></a>
 				</div>
 
 				<div class="item-info">
@@ -54,8 +54,15 @@ if (cart == null) {
 
 					<h6><%=beancart.getName()%></h6>
 					<br /> <span>Prezzo:</span> <span class="bolded"><%=beancart.getPrice()%>€</span>
-					<br /> <span>Misura:</span> <span class="bolded">39</span> <br />
-					<span>Quantità: <%=beancart.getQuantitaAcquisto()%></span>
+					<span>Quantità: 	<form action="carrello" method="post">
+					<input type="hidden" name="action" value="addQuant"> 
+					<input type="hidden" name="id" value="<%=beancart.getCode()%>"> 
+					
+					<input name="quantita" style="width: 3vw;" type="number" min="1" value=<%=beancart.getQuantitaAcquisto()%> />
+					<input  style="width: 5w;" type="submit" value="Applica" />
+					
+					</form>
+					</span>
 				</div>
 			</div>
 
@@ -66,6 +73,7 @@ if (cart == null) {
 
 		</div>
 
+    <form action="Checkout" method="POST">
 		<div class="payment">
 			<div class="checkout">
 				<h6>ORDINE</h6>
@@ -83,8 +91,9 @@ if (cart == null) {
 					<p>TOTALE (IVA inclusa)</p>
 					<p class="finalprice"><%=totale%>€</p>
 				</div>
-
-				<button class="acquista">ACQUISTA</button>
+          
+				<button type="submit" class="acquista" >ACQUISTA</button>
+				
 
 				<button class="paypal">
 					<img src="img/PayPal.png" alt="PayPal" />
@@ -99,6 +108,7 @@ if (cart == null) {
 				<input type="text" placeholder="Codice Sconto" />
 			</div>
 		</div>
+		</form>
 	</div>
 	<%
 	}

@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  z-index: 300;
+}
+
+.middle {
+  padding-top: 5px;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topleft {
+  display: flex;
+  flex: 1;
+  padding-top: 20px;
+}
+
+.topright {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.logo {
+  border-radius: 100px;
+  width: 70px;
+  height: 70px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.user {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.nav {
+  z-index: 1;
+  list-style: none;
+  text-align: center;
+  padding-inline-start: 0px;
+}
+
+.nav li {
+  display: inline;
+}
+
+.nav a {
+  color: black;
+  text-decoration: none;
+  font-family: "Sen", sans-serif;
+  font-size: 16px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.35);
+  display: inline-block;
+  padding: 5px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.container {
+  border-radius: 20px;
+  margin: auto;
+  width: 70%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+}
+
+#bold {
+  font-weight: bold;
+}
+
+.user-data {
+  padding: 30px;
+}
+
+.user-address {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.user-cards {
+  padding: 30px;
+}
+
+.title {
+  display: flex;
+  gap: 10px;
+}
+
+.title img {
+  width: 50px;
+}
+
+.title button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.title button:hover {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: red;
+}
+
+.card-title {
+  display: flex;
+  text-align: center;
+  gap: 20px;
+}
+
+#trash {
+  width: 20px;
+}
+
+.order-container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.order-container h2 {
+  margin-left: 20px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.order-header input {
+  border: 1px solid black;
+  border-radius: 15px;
+  outline: none;
+  height: 20px;
+}
+
+.order-table {
+  margin: auto;
+}
+
+.order-table table {
+  text-align: center;
+}
+
+table td {
+  padding: 10px;
+}
+
+table #name {
+  font-weight: bold;
+}
+
+table #status {
+  color: rgb(0, 197, 0);
+}
+
+@media screen and (max-width: 1300px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .user-info {
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container {
+    width: 80%;
+  }
+
+  .order-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .order-container,
+  table {
+    overflow: scroll;
+    width: calc(100% - 60px);
+    margin-left: auto;
+  }
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+}
+
+.modal-content input {
+  padding: 5px;
+  margin: 5px;
+}
+
+.modal-content input[type="submit"] {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.modal-content input[type="submit"]:hover {
+  background-color: black;
+  color: white;
+  transition: 0.3s background-color ease-in-out;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s color ease-in-out;
+}

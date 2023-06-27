@@ -35,7 +35,7 @@ ProductBean product = (ProductBean) request.getAttribute("product");
 
   <div class="product">
     <div class="product-image">
-      <img src="img/Scarpa2.png" alt="Prodotto" />
+      <img src="getImage?id=<%=product.getCode()%>" alt="Prodotto" />
     </div>
 
     <div class="product-settings">
@@ -47,25 +47,19 @@ ProductBean product = (ProductBean) request.getAttribute("product");
 
    
 
-      <div class="size">
+   <div class="size">
         <div>
           <span id="tit">TAGLIA</span>
-          <span>- 39</span>
+          <span>- Taglia unica</span>
         </div>
-        <div class="size-btn">
-          <button class="btn" type="submit">35</button>
-          <button class="btn" type="submit">36</button>
-          <button class="btn" type="submit">37</button>
-          <button class="btn" type="submit">38</button>
-          <button class="btn" type="submit">39</button>
-          <button class="btn" type="submit">40</button>
-          <button class="btn" type="submit">41</button>
-          <button class="btn" type="submit">42</button>
-        </div>
-      </div>
+        <!-- <div class="size-btn">
+          
+          <button class="btn" type="submit">Taglia unica</button>
+        </div> -->
+      </div> 
 
       <div class="buttons">
-       <a href="product?action=addC&id=<%=product.getCode()%>"> 
+       <a href="carrello?action=addC&id=<%=product.getCode()%>"> 
         <button id="add">AGGIUNGI AL CARRELLO</button>
         </a>
       </div>

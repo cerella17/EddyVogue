@@ -7,8 +7,7 @@
  -->
  </style>
 
-<% UserBean user = (UserBean) session.getAttribute("user");
-%>
+
 
 <div class="header">
         <div class="topleft">
@@ -18,30 +17,31 @@
 
         <div class="middle">
             <div class="topcentre">
-                <a href="home.jsp"><img class="logo" src="img/logo.png"></a>
+                <a href="./ProductView.jsp"><img class="logo" src="img/logo.png"></a>
         </div>
 
         <div class="navbar">
                 <ul class="nav">
-                    <li><a href="../ProductView.jsp">NOVITÀ</a></li>
-                    <li><a href="../ProductView.jsp">DONNA</a></li>
-                    <li><a href="../ProductView.jsp">UOMO</a></li>
-                    <li><a href="../ProductView.jsp">BRAND</a></li>
-                    <li><a href="saldi.html" style="color: red;">SALDI</a></li>
+                    <li><a href="/EddyVogueWeb/ProductView.jsp">HOME</a></li>
+                    <li><a href="/EddyVogueWeb/donna.jsp">DONNA</a></li>
+                    <li><a href="/EddyVogueWeb/uomo.jsp">UOMO</a></li>
+                    <li><a href="/EddyVogueWeb/brand.jsp">BRAND</a></li>
+                    <li><a href="/EddyVogueWeb/catalogo.jsp" style="color: red;">SALDI</a></li>
                 </ul>
             </div>
             
-            <% if(user!=null) { %>
-            <h4>Benvenuto: <%= user.getNome()+" "+user.getCognome() %></h4>
-            <% } %>
+           
             
         </div>
 
         <div class="topright">
             <a href="/EddyVogueWeb/addproduct"><img class="user" src="icons/search.png" ></a>
             <a href="/EddyVogueWeb/Carrello.jsp"><img class="user" src="icons/cart.png" ></a>
-            <a href="/EddyVogueWeb/login.jsp"><img class="user" src="icons/user.png" ></a>
+            <a href="/EddyVogueWeb/user.jsp"><img class="user" src="icons/user.png" ></a>
         </div>
   </div>
+  
+  
+
 
     
