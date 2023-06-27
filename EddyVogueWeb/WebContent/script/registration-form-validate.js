@@ -100,8 +100,8 @@ function email_validate(email, errorId) {
 
 // Funzione di validazione alfanumerica
 function alphanumeric(parametro, errorId, campo) {
-  var alpha = /^[0-9a-zA-Z]+$/; // Espressione regolare per verificare solo caratteri alfanumerici
-  var parameterError = document.getElementById(errorId);
+  let alpha = /^[0-9a-zA-Z]+$/; // Espressione regolare per verificare solo caratteri alfanumerici
+  let parameterError = document.getElementById(errorId);
 
   // Verifica se il parametro contiene solo caratteri alfanumerici
   if (parametro.value.match(alpha)) {
@@ -123,8 +123,8 @@ function alphanumeric(parametro, errorId, campo) {
 
 // Funzione di validazione solo per lettere
 function allLetter(parametro, errorId, campo) {
-  var caratteri = /^[a-zA-Z]+$/; // Espressione regolare per verificare solo lettere
-  var parameterError = document.getElementById(errorId);
+  let caratteri = /^[a-zA-Z]+$/; // Espressione regolare per verificare solo lettere
+  let parameterError = document.getElementById(errorId);
 
   // Verifica se il parametro contiene solo lettere
   if (parametro.value.match(caratteri)) {
@@ -146,8 +146,8 @@ function allLetter(parametro, errorId, campo) {
 
 // Funzione di validazione della password
 function pass_validate(pass, mx, my, errorId) {
-  var pass_len = pass.value.length;
-  var passError = document.getElementById(errorId);
+  let pass_len = pass.value.length;
+  let passError = document.getElementById(errorId);
 
   // Verifica se la lunghezza della password è valida
   if (pass_len == 0 || pass_len >= my || pass_len < mx) {
@@ -173,7 +173,7 @@ function pass_validate(pass, mx, my, errorId) {
 
 // Funzione per nascondere il messaggio di errore
 function hideErrorMessage(errorId) {
-  var errorElement = document.getElementById(errorId);
+  let errorElement = document.getElementById(errorId);
   errorElement.style.display = "none";
 }
 }
