@@ -24,9 +24,8 @@ public class UserDao {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
+		} catch (NamingException e) 
+		
 	}
 	
 
@@ -231,6 +230,7 @@ public class UserDao {
 	}
 
 	private String toHash(String password) {
+		
 		String hashString = null;
 		try {
 			java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
@@ -240,7 +240,6 @@ public class UserDao {
 				hashString += Integer.toHexString((hash[i] & 0xFF) | 0x100).toLowerCase().substring(1, 3);
 			}
 		} catch (java.security.NoSuchAlgorithmException e) {
-			System.out.println(e);
 		}
 		return hashString;
 	}
