@@ -11,13 +11,13 @@
 
 <div class="header">
         <div class="topleft">
-            <a href=""><img class="user" src="icons/instagram.png" ></a>
-            <a href=""><img class="user" src="icons/twitter.png" ></a>
+            <a href=""><img alt="image" class="user" src="icons/instagram.png" ></a>
+            <a href=""><img  alt="image" class="user" src="icons/twitter.png" ></a>
         </div>
 
         <div class="middle">
             <div class="topcentre">
-                <a href="./ProductView.jsp"><img class="logo" src="img/logo.png"></a>
+                <a href="./ProductView.jsp"><img alt="image" class="logo" src="img/logo.png"></a>
         </div>
 
         <div class="navbar">
@@ -35,8 +35,8 @@
         </div>
 
         <div class="topright">
-            <a href="/EddyVogueWeb/Carrello.jsp"><img class="user" src="icons/cart.png" ></a>
-            <a href="/EddyVogueWeb/user.jsp"><img class="user" src="icons/user.png" ></a>
+            <a href="/EddyVogueWeb/Carrello.jsp"><img  alt="image" class="user" src="icons/cart.png" ></a>
+            <a href="/EddyVogueWeb/user.jsp"><img alt="image" class="user" src="icons/user.png" ></a>
         </div>
   </div>
   
