@@ -72,7 +72,6 @@ public class CatalogoController extends HttpServlet {
 				}
 			}			
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
 		}
 
 		request.getSession().setAttribute("cart", cart);
@@ -85,7 +84,7 @@ public class CatalogoController extends HttpServlet {
 			request.removeAttribute("products");
 			request.setAttribute("products", model.doRetrieveAll(sort));
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/catalogo.jsp");
