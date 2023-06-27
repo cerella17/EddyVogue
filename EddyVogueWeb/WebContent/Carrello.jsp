@@ -42,13 +42,13 @@ if (cart == null) {
 			%>
 			<div class="item">
 				<div class="item-image">
-					<a href=""><img src="getImage?id=<%=beancart.getCode() %>"/></a>
+					<a href=""><img alt="image"src="getImage?id=<%=beancart.getCode() %>"/></a>
 				</div>
 
 				<div class="item-info">
 					<div class="rmv">
 						<a href="carrello?action=deleteC&id=<%=beancart.getCode()%>">
-							<img src="img/icons8-close.svg" />
+							<img alt="image" src="img/icons8-close.svg" />
 						</a>
 					</div>
 
