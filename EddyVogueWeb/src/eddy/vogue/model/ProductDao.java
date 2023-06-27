@@ -28,8 +28,8 @@ public class ProductDao implements ProductModel {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) {
-		}
+		} catch (NamingException e) 
+		
 	}
 
 	private static final String TABLE_NAME = "Prodotto";
