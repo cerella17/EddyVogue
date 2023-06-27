@@ -48,9 +48,9 @@ public class AjaxSearchController extends HttpServlet {
 				json.put("products", pbs);
 				out.print(json.toString());
 				return;
-        	} catch (SQLException e) {
-				e.printStackTrace();
-			}
+        	} catch (SQLException e) 
+				
+			
         }
         
 	}
