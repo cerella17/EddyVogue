@@ -1,15 +1,15 @@
 
 window.onload = ()=>{
 // Get the modal
-var modalProfile = document.getElementById("ModalProfile");
-var modalIndirizzo = document.getElementById("ModalIndirizzo");
+let modalProfile = document.getElementById("ModalProfile");
+let modalIndirizzo = document.getElementById("ModalIndirizzo");
 
 // Get the button that opens the modal
-var btnprofilo = document.getElementById("modifica-profilo");
-var btnindirizzo = document.getElementById("modifica-indirizzo");
+let btnprofilo = document.getElementById("modifica-profilo");
+let btnindirizzo = document.getElementById("modifica-indirizzo");
 // Get the <span> element that closes the modal
-var spanProfilo = document.getElementsByClassName("close")[0];
-var spanIndirizzo = document.getElementsByClassName("close")[1];
+let spanProfilo = document.getElementsByClassName("close")[0];
+let spanIndirizzo = document.getElementsByClassName("close")[1];
 
 // When the user clicks the button, open the modal
 btnprofilo.onclick = function () {
