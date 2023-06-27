@@ -63,7 +63,7 @@
         <input type="text" id="user" placeholder="Cerca..." />
       </div>
       <div class="order-table">
-        <table>
+        <table title"dettagli prodotto">
           <tr>
             <th>ID</th>
             <th>Nome Prodotto</th>
