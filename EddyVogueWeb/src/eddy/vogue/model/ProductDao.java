@@ -29,7 +29,6 @@ public class ProductDao implements ProductModel {
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
 		}
 	}
 
