@@ -148,7 +148,7 @@
           <h2>Ordini recenti</h2>
         </div>
         <div class="order-table">
-          <table>
+          <table title"dettagli ordine">
             <tr>
               <th>ID</th>
               <th>Oggetto</th>
