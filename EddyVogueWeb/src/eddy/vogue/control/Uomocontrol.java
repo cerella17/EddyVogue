@@ -84,7 +84,6 @@ public class Uomocontrol extends HttpServlet {
 			request.removeAttribute("products");
 			request.setAttribute("products", model.doRetrieveMan(sort));
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/uomo.jsp");
