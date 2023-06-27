@@ -47,6 +47,7 @@ public class User extends HttpServlet {
 		String citta = request.getParameter("citta");
 		String indirizzo = request.getParameter("indirizzo");
 		String provincia = request.getParameter("provincia");
+		int id = Integer.parseInt(request.getParameter("id")!=null?request.getParameter("id"):"0");
 
 		List<String> errors = new ArrayList<>();
 
@@ -54,9 +55,12 @@ public class User extends HttpServlet {
 		if (email == null || email.trim().isEmpty()) {
 			errors.add("Il campo email non può essere vuoto!");
 		}
-		if (password == null || password.trim().isEmpty()) {
-			errors.add("Il campo password non può essere vuoto!");
+		if(id==0) {
+			if (password == null || password.trim().isEmpty() ) {
+				errors.add("Il campo password non può essere vuoto!");
+			
 		}
+}
 		if (action.equals("registrati")) {
 			if (nome == null || nome.trim().isEmpty()) {
 				errors.add("Il campo nome non può essere vuoto!");
@@ -66,11 +70,19 @@ public class User extends HttpServlet {
 			}
 		}
 
-		if (!errors.isEmpty()) {
+		if (!errors.isEmpty() && !action.equals("updateIndirizzo")) {
 			request.setAttribute("errors", errors);
 			if (action.equals("accedi")) {
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
-			} else {
+			} 
+			else if(action.equals("updateData")){
+				request.getRequestDispatcher("/user.jsp").forward(request, response);
+			}
+			else if(action.equals("updateIndirizzo")){
+				request.getRequestDispatcher("/user.jsp").forward(request, response);
+			}
+			else {
+			
 				request.getRequestDispatcher("/registrati.jsp").forward(request, response);
 			}
 			return;
@@ -127,6 +139,44 @@ public class User extends HttpServlet {
 			try {
 				userDao.doSave(ub);
 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
+		}
+		case "updateDati": {
+			try {
+				
+				userDao.doUpdateData(nome,cognome,email,id);
+				UserBean ub = userDao.doRetrieveById(id);
+
+				
+				request.getSession().setAttribute("user", ub);
+
+				request.getRequestDispatcher("/user.jsp").forward(request, response);
+
+
+
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			break;
+		}
+		case "updateIndirizzo": {
+			try {
+				
+				userDao.doUpdateIndirizzo(indirizzo,id);
+				UserBean ub = userDao.doRetrieveById(id);
+
+				
+				request.getSession().setAttribute("user", ub);
+
+				request.getRequestDispatcher("/user.jsp").forward(request, response);
+
+
+
+			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

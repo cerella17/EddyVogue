@@ -1,6 +1,7 @@
 package eddy.vogue.model;
 
 import java.io.Serializable;
+import java.io.InputStream;
 
 public class ProductBean implements Serializable {
 
@@ -14,6 +15,8 @@ public class ProductBean implements Serializable {
 	int price;
 	int quantity;
 	int quantitaAcquisto;
+	private InputStream immagineIS;
+
 
 	public ProductBean() {
 		code = -1;
@@ -86,6 +89,14 @@ public class ProductBean implements Serializable {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public InputStream getImmagineIS() {
+		return immagineIS;
+	}
+
+	public void setImmagineIS(InputStream immagineIS) {
+		this.immagineIS = immagineIS;
 	}
 
 	@Override

@@ -61,6 +61,60 @@ public class UserDao {
 			}
 		}
 	}
+	
+	
+	public synchronized void doUpdateData(String Nome, String Cognome, String Email, int id) throws SQLException {
+		Connection c = null;
+		PreparedStatement p = null;
+		
+	
+
+		String query = "UPDATE " + UserDao.TABLE_NAME + " SET Nome = ?, Cognome = ?, Email = ? WHERE ID = ?";
+
+		try {
+			c = ds.getConnection();
+			p = c.prepareStatement(query);
+			p.setString(1, Nome);
+			p.setString(2, Cognome);
+			p.setString(3, Email);		
+			p.setInt(4, id);
+			p.executeUpdate();
+		} finally {
+			try {
+				if (p != null)
+					p.close();
+			} finally {
+				if (c != null)
+					c.close();
+			}
+		}
+	}
+	
+	public synchronized void doUpdateIndirizzo(String Indirizzo,int id) throws SQLException {
+		Connection c = null;
+		PreparedStatement p = null;
+		
+	
+
+		String query = "UPDATE " + UserDao.TABLE_NAME + " SET Indirizzo = ? WHERE ID = ?";
+
+		try {
+			c = ds.getConnection();
+			p = c.prepareStatement(query);
+
+			p.setString(1, Indirizzo);		
+			p.setInt(2, id);
+			p.executeUpdate();
+		} finally {
+			try {
+				if (p != null)
+					p.close();
+			} finally {
+				if (c != null)
+					c.close();
+			}
+		}
+	}
 
 	
 	public synchronized UserBean doRetrieveByEmailAndPass(String email, String password) throws SQLException {
@@ -76,6 +130,46 @@ public class UserDao {
 			p = c.prepareStatement(query);
 			p.setString(1, email);
 			p.setString(2, toHash(password));
+
+			ResultSet rs = p.executeQuery();
+
+			if (rs.next()) {
+				bean = new UserBean();
+				bean.setId(rs.getInt("ID"));
+				bean.setNome(rs.getString("Nome"));
+				bean.setCognome(rs.getString("Cognome"));
+				bean.setEmail(rs.getString("Email"));
+				bean.setProvincia(rs.getString("Provincia"));
+				bean.setIndirizzo(rs.getString("Indirizzo"));
+				bean.setCitta(rs.getString("Citta"));
+				bean.setCap(rs.getInt("CAP"));
+
+			}
+		} finally {
+			try {
+				if (p != null)
+					p.close();
+			} finally {
+				if (c != null)
+					c.close();
+			}
+		}
+
+		return bean;
+	}
+	
+	public synchronized UserBean doRetrieveById(int id) throws SQLException {
+		Connection c = null;
+		PreparedStatement p = null;
+
+		UserBean bean = null;
+
+		String query = "SELECT * FROM " + UserDao.TABLE_NAME + " WHERE ID = ?";
+
+		try {
+			c = ds.getConnection();
+			p = c.prepareStatement(query);
+			p.setInt(1, id);
 
 			ResultSet rs = p.executeQuery();
 

@@ -23,6 +23,18 @@ public class Cart {
 		products.add(product); 
 	}
 	
+	public void addQuant(ProductBean product,int quantita) {
+		
+		for(ProductBean prod : products) {
+			if(prod.getCode() == product.getCode()) {
+				prod.setQuantitaAcquisto(quantita);
+				return ;
+			}
+		}
+		
+		products.add(product); 
+	}
+	
 	public void deleteProduct(ProductBean product) {
 		for(ProductBean prod : products) {
 			if(prod.getCode() == product.getCode()) {

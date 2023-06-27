@@ -44,6 +44,8 @@ public class CartControl extends HttpServlet {
 		String action = request.getParameter("action");
 
 		try {
+			System.out.println(action);
+
 			if (action != null) {
 				 if (action.equalsIgnoreCase("deleteC")) {
 					int id = Integer.parseInt(request.getParameter("id"));
@@ -52,6 +54,12 @@ public class CartControl extends HttpServlet {
 				 else if (action.equalsIgnoreCase("addC")) {
 						int id = Integer.parseInt(request.getParameter("id"));
 						cart.addProduct(model.doRetrieveByKey(id));
+					}
+				 else if (action.equalsIgnoreCase("addQuant")) {
+						int id = Integer.parseInt(request.getParameter("id"));
+						int quant = Integer.parseInt(request.getParameter("quantita"));
+
+						cart.addQuant(model.doRetrieveByKey(id),quant);
 					}
 			}
 				
