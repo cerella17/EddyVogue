@@ -25,7 +25,6 @@ public class CheckoutController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-        System.out.println("Entro dentro la mamma di peppe");
 
 		Cart cart = (Cart)request.getSession().getAttribute("cart");
 		if (cart == null) {
@@ -44,7 +43,6 @@ public class CheckoutController extends HttpServlet {
 			return;
 
 		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		
 	}
