@@ -24,9 +24,9 @@ public class OrdiniAdminController extends HttpServlet {
 			request.setAttribute("ordini", ordini);
 			request.getRequestDispatcher("/admin/admin-order.jsp").forward(request, response);
 			return;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		} catch (SQLException e) 
+		
+		
 		response.sendRedirect("/");
 	}
 
