@@ -148,7 +148,8 @@
           <h2>Ordini recenti</h2>
         </div>
         <div class="order-table">
-          <table title="dettagli ordine">
+          <table >
+		<caption>Ordini Utenti</caption>
             <tr>
               <th>ID</th>
               <th>Oggetto</th>
