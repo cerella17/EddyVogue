@@ -23,7 +23,8 @@
         <h2>Utenti</h2>
       </div>
       <div class="order-table">
-        <table title="dettagli utenti">
+        <table >
+	<caption>Dettagli User</caption>
           <tr>
             <th>ID</th>
             <th>Nome</th>
