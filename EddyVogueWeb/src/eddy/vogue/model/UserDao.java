@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -24,7 +26,7 @@ public class UserDao {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) 
+		} catch (NamingException e) {}
 		
 	}
 	
@@ -195,6 +197,51 @@ public class UserDao {
 		}
 
 		return bean;
+	}
+	
+	public synchronized List<UserBean> doRetrieveAll() throws SQLException {
+		Connection c = null;
+		PreparedStatement p = null;
+
+		
+		List<UserBean> ubs = new ArrayList<>();
+
+		UserBean bean = null;
+
+		String query = "SELECT * FROM " + UserDao.TABLE_NAME;
+
+		try {
+			c = ds.getConnection();
+			p = c.prepareStatement(query);
+
+			ResultSet rs = p.executeQuery();
+
+			while (rs.next()) {
+				bean = new UserBean();
+				bean.setId(rs.getInt("ID"));
+				bean.setNome(rs.getString("Nome"));
+				bean.setCognome(rs.getString("Cognome"));
+				bean.setEmail(rs.getString("Email"));
+				bean.setProvincia(rs.getString("Provincia"));
+				bean.setIndirizzo(rs.getString("Indirizzo"));
+				bean.setCitta(rs.getString("Citta"));
+				bean.setCap(rs.getInt("CAP"));
+ 				ubs.add(bean);
+
+
+			}
+		} finally {
+			try {
+				if (p != null)
+					p.close();
+			} finally {
+				if (c != null)
+					c.close();
+			}
+		}
+
+	
+		return ubs;
 	}
 
 	

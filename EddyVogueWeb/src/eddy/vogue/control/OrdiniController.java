@@ -25,7 +25,7 @@ public class OrdiniController extends HttpServlet {
 			request.setAttribute("ordini", ordini);
 			request.getRequestDispatcher("/user.jsp").forward(request, response);
 			return;
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 			
 		
 		response.sendRedirect("/");

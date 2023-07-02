@@ -5,6 +5,8 @@ import java.util.Collection;
 
 public interface ProductModel {
 	public void doSave(ProductBean product) throws SQLException;
+	public void doEdit(ProductBean product) throws SQLException;
+
 
 	public boolean doDelete(int code) throws SQLException;
 

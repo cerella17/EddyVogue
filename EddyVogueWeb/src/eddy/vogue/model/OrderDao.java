@@ -28,12 +28,12 @@ public class OrderDao {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) 
+		} catch (NamingException e) {}
 		
 	}
 	
 	private static final String TABLE_ORDINE = "Ordine";
-
+	private static final String TABLE_PRODOTTO = "Prodotto";
 
 
 	
@@ -41,6 +41,8 @@ public class OrderDao {
 	public void effettuaOrdine(List<ProductBean> cis, int id_utente, String indirizzo) throws SQLException {
 		Connection c = null;
 		PreparedStatement p = null;
+		PreparedStatement p2 = null;
+
         
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 
@@ -53,25 +55,36 @@ public class OrderDao {
 		String query = 
 				"INSERT INTO " + TABLE_ORDINE + " ( idUtente, idProdotto, data, indirizzo, dettagli, Prezzo)"
 				+ " VALUES (?,?,?,?,?,?)";		
+		String query2 = 
+				"UPDATE " + TABLE_PRODOTTO + " SET Quantita = ? WHERE ID_Prodotto = ?";	
 		
 		for(int i=1;i<cis.size();i++) {
-			query+=",(?,?,?,?,?,?)";
+			query+=",(?,?,?,?,?,?,?)";
+			query2+=",(?,?)";
 		}
 
 		try {		
 			c = ds.getConnection();
 			p = c.prepareStatement(query);
+			p2 = c.prepareStatement(query2);
 			int j=0;
+	
 			for(int i=0;i<cis.size();i++) {
+				
 				if(i!=0)j=j+6;
+				int quantity = cis.get(i).getQuantity() - cis.get(i).getQuantitaAcquisto();
 				p.setInt(j+1, id_utente);
 				p.setInt(j+2, cis.get(i).getCode());
 				p.setString(j+3, timeStamp);
 				p.setString(j+4, indirizzo);
 				p.setInt(j+5, cis.get(i).getQuantitaAcquisto());
 				p.setString(j+6, Integer.toString(cis.get(i).getPrice()*cis.get(i).getQuantitaAcquisto())+"€");
+				p2.setInt(j+1, quantity);
+				p2.setInt(j+2, cis.get(i).getCode());
+
 			}
 			p.executeUpdate();
+			p2.executeUpdate();
 			p.close();
 			
 		} finally {

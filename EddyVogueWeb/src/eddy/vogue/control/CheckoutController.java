@@ -2,7 +2,8 @@ package eddy.vogue.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import eddy.vogue.model.UserBean;
+import eddy.vogue.model.ProductBean;
+
 
 import eddy.vogue.model.Cart;
 import eddy.vogue.model.OrderDao;
@@ -31,6 +34,19 @@ public class CheckoutController extends HttpServlet {
 			request.getRequestDispatcher("/carrello").forward(request, response);
 			return;
 		}
+		List<String> errors = cart.getProducts().stream().map(el->
+		el.getQuantitaAcquisto()>el.getQuantity()
+		?"Non ci sono abbastanza "+el.getName()+" nel magazzino (Restanti: "+el.getQuantity()+")"
+		:null
+	)
+	.filter(x -> x != null)
+	.collect(Collectors.toList());
+	
+	if (!errors.isEmpty()) {
+		request.setAttribute("errors", errors);
+		request.getRequestDispatcher("/carrello").forward(request, response);
+		return;
+	}
 	
 		OrderDao orderDao = new OrderDao();
 		try {
@@ -42,7 +58,7 @@ public class CheckoutController extends HttpServlet {
 			request.getRequestDispatcher("/user.jsp").forward(request, response);
 			return;
 
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 		
 		
 	}

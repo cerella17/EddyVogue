@@ -14,7 +14,7 @@ import eddy.vogue.model.*;
 /**
  * Servlet implementation class ProductControl
  */
-public class Donnacontroller extends HttpServlet {
+public class AdminProductControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
@@ -27,7 +27,7 @@ public class Donnacontroller extends HttpServlet {
 		
 	}
 	
-	public Donnacontroller() {
+	public AdminProductControl() {
 		super();
 	}
 
@@ -82,11 +82,11 @@ public class Donnacontroller extends HttpServlet {
 
 		try {
 			request.removeAttribute("products");
-			request.setAttribute("products", model.doRetrieveWMan(sort));
+			request.setAttribute("products", model.doRetrieveAll(sort));
 		} catch (SQLException e) {}
 		
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/donna.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/admin-product.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -14,12 +14,12 @@ import javax.sql.DataSource;
 
 import org.json.JSONObject;
 
-import eddy.vogue.model.ProductBean;
-import eddy.vogue.model.ProductDao;
+import eddy.vogue.model.UserBean;
+import eddy.vogue.model.UserDao;
 
 
-@WebServlet("/AjaxSearchController")
-public class AjaxSearchController extends HttpServlet {
+@WebServlet("/AjaxEmailController")
+public class AjaxEmailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,25 +29,34 @@ public class AjaxSearchController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("etro");
 		
 		response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        String search = request.getParameter("search");
+        String email = request.getParameter("email");
         JSONObject json = new JSONObject();
         
-        if(search == null) {
-        	json.put("error", "search param missing");
+        if(email == null) {
+        	json.put("error", "email param missing");
         	response.setStatus(400);
         	out.print(json.toString());
         	return;
         }else {
-        	ProductDao productDao = new ProductDao();
+    		UserDao userDao = new UserDao();
+        	
         	try {
-				List<ProductBean> pbs = productDao.getSearchProducts(search);
-				json.put("success", true);
-				json.put("products", pbs);
-				out.print(json.toString());
-				return;
+        		if(!userDao.checkUserEmailExistance(email)) {
+        			json.put("success", "Ok");
+    				out.print(json.toString());
+    				return;
+        		}
+        		else {
+        			json.put("success", "Esistente");
+    				out.print(json.toString());
+    				return;
+        		}
+				
+				
         	} catch (SQLException e){}
 				
 			

@@ -64,7 +64,7 @@ public class CartControl extends HttpServlet {
 			}
 				
 						
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 			
 		
 

@@ -28,7 +28,7 @@ public class ProductDao implements ProductModel {
 
 			ds = (DataSource) envCtx.lookup("jdbc/eddyvogue");
 
-		} catch (NamingException e) 
+		} catch (NamingException e) {}
 		
 	}
 
@@ -36,25 +36,40 @@ public class ProductDao implements ProductModel {
 
 	@Override
 	public synchronized void doSave(ProductBean product) throws SQLException {
+		
+		System.out.println("Do save fun");
+
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ProductDao.TABLE_NAME
-				+ " (Nome, Tipologia,Descrizione, Prezzo, Quantita,Genere) VALUES (?, ?, ?, ?, ?, ?)";
+				+ " (Nome, Tipologia,Descrizione, Prezzo, Quantita,Genere,Foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, product.getName());
-			preparedStatement.setString(2, product.getDescription());
-			preparedStatement.setInt(3, product.getPrice());
-			preparedStatement.setInt(4, product.getQuantity());
+			preparedStatement.setString(2, product.getTipologia());
+			preparedStatement.setString(3, product.getDescription());
+			preparedStatement.setInt(4, product.getPrice());
+			preparedStatement.setInt(5, product.getQuantity());
+			preparedStatement.setString(6, product.getGenere());
+			preparedStatement.setBinaryStream(7, product.getImmagineIS());
+
 
 			preparedStatement.executeUpdate();
 
 			connection.commit();
-		} finally {
+		} 
+		catch(SQLException  e) {
+		
+				System.out.println(e);
+
+			
+		}
+		
+		finally {
 			try {
 				if (preparedStatement != null)
 					preparedStatement.close();
@@ -63,6 +78,54 @@ public class ProductDao implements ProductModel {
 					connection.close();
 			}
 		}
+		
+	}
+	
+	@Override
+	public synchronized void doEdit(ProductBean product) throws SQLException {
+		
+
+
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String query = "UPDATE " + ProductDao.TABLE_NAME + " SET Nome = ?, Tipologia = ?, Descrizione = ?, Prezzo = ?, Quantita = ? WHERE ID_Prodotto = ?";
+
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, product.getName());
+			preparedStatement.setString(2, product.getTipologia());
+			preparedStatement.setString(3, product.getDescription());
+			preparedStatement.setInt(4, product.getPrice());
+			preparedStatement.setInt(5, product.getQuantity());
+			preparedStatement.setInt(6, product.getCode());
+
+
+
+			preparedStatement.executeUpdate();
+
+			connection.commit();
+		} 
+		catch(SQLException  e) {
+		
+				System.out.println(e);
+
+			
+		}
+		
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
 	}
 	
 	public byte[] getProductImageById(int id) throws SQLException {
@@ -135,6 +198,8 @@ public class ProductDao implements ProductModel {
 		}
 		return bean;
 	}
+	
+	
 
 	@Override
 	public synchronized boolean doDelete(int code) throws SQLException {
@@ -143,16 +208,26 @@ public class ProductDao implements ProductModel {
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + ProductDao.TABLE_NAME + " WHERE ID_Prodotto = ?";
+		String query = "UPDATE " + ProductDao.TABLE_NAME + " SET Quantita = ? WHERE ID_Prodotto = ?";
+		
+		
+		
 
 		try {
 			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setInt(1, code);
-
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, -1);
+			preparedStatement.setInt(2, code);
 			result = preparedStatement.executeUpdate();
 
-		} finally {
+		} 
+		catch(SQLException  e) {
+			
+			System.out.println(e);
+
+		
+	}
+		finally {
 			try {
 				if (preparedStatement != null)
 					preparedStatement.close();

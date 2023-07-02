@@ -14,7 +14,7 @@ import eddy.vogue.model.OrderDao;
 import eddy.vogue.model.OrderBean;
 
 
-public class OrdiniAdminController extends HttpServlet {
+public class OrdiniAdminControllerDash extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class OrdiniAdminController extends HttpServlet {
 		try {
 			List<OrderBean> ordini = orderDao.getOrdrers();
 			request.setAttribute("ordini", ordini);
-			request.getRequestDispatcher("/admin/admin-order.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/admin-dashboard.jsp").forward(request, response);
 			return;
 		} catch (SQLException e) {}
 		

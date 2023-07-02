@@ -45,7 +45,7 @@ public class GetImageController extends HttpServlet {
 				response.getWriter().write("image not found");
 			}
 			out.close();
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 			
 		
 	}

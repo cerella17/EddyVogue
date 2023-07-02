@@ -71,7 +71,7 @@ public class Uomocontrol extends HttpServlet {
 					model.doSave(bean);
 				}
 			}			
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 		
 
 		request.getSession().setAttribute("cart", cart);
@@ -83,7 +83,7 @@ public class Uomocontrol extends HttpServlet {
 		try {
 			request.removeAttribute("products");
 			request.setAttribute("products", model.doRetrieveMan(sort));
-		} catch (SQLException e) 
+		} catch (SQLException e) {}
 		
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/uomo.jsp");

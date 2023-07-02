@@ -35,21 +35,52 @@ public class User extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		UserDao userDao = new UserDao();
 		String action = request.getParameter("action");
+		List<String> errors = new ArrayList<>();
+
 		if (action == null) {
 			response.getWriter().write("?action= misses");
 			return;
 		}
+		if(action =="getAllUser") {
+			try {
+				List<UserBean> users = userDao.doRetrieveAll();
+				request.setAttribute("listaUser",users);
+				request.getRequestDispatcher("/admin/admin-user.jsp").forward(request, response);
+				return;
+				
+			}
+			catch (SQLException e) {}
+			
+		}
+		String email = request.getParameter("email");
+
+		if(action =="checkEmail") {
+			try {
+				
+			
+			if (userDao.checkUserEmailExistance(email)) {
+				errors.add("L'email è già in uso!");
+				request.setAttribute("errors", errors);
+			
+				return;
+			}
+			}
+			catch (SQLException e) {}
+			
+		}
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String citta = request.getParameter("citta");
 		String indirizzo = request.getParameter("indirizzo");
 		String provincia = request.getParameter("provincia");
 		int id = Integer.parseInt(request.getParameter("id")!=null?request.getParameter("id"):"0");
 
-		List<String> errors = new ArrayList<>();
+		
+		
+		
 
 		// errors handling
 		if (email == null || email.trim().isEmpty()) {
@@ -88,7 +119,6 @@ public class User extends HttpServlet {
 			return;
 		}
 
-		UserDao userDao = new UserDao();
 
 		switch (action) {
 		case "accedi": {
@@ -107,7 +137,7 @@ public class User extends HttpServlet {
 					request.setAttribute("errors", errors);
 					request.getRequestDispatcher("/login.jsp").forward(request, response);
 				}
-			} catch (SQLException e) 
+			} catch (SQLException e) {}
 			
 			break;
 		}
@@ -121,7 +151,7 @@ public class User extends HttpServlet {
 					request.getRequestDispatcher("/registrati.jsp").forward(request, response);
 					return;
 				}
-			} catch (SQLException e) 
+			} catch (SQLException e) {}
 			
 			UserBean ub = new UserBean();
 			ub.setNome(nome);
@@ -137,7 +167,7 @@ public class User extends HttpServlet {
 			try {
 				userDao.doSave(ub);
 
-			} catch (SQLException e) 
+			} catch (SQLException e) {}
 			
 			break;
 		}
@@ -155,8 +185,7 @@ public class User extends HttpServlet {
 
 
 			
-			} catch (SQLException e) 
-			
+			} catch (SQLException e) {}
 			break;
 		}
 		case "updateIndirizzo": {
@@ -173,12 +202,12 @@ public class User extends HttpServlet {
 
 
 			
-			} catch (SQLException e) 
+			} catch (SQLException e) {}
 			
 			break;
 		}
 			default:
-				break
+				break;
 		}
 	}
 

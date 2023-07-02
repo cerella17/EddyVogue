@@ -22,9 +22,9 @@ public class IsAdmin extends HttpFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-		UserBean ub = (UserBean) req.getSession().getAttribute("user");
-		if (ub == null) {
-			res.sendRedirect(req.getContextPath() + "/login.jsp");
+		Boolean isAdmin = (Boolean) req.getSession().getAttribute("isAdmin");
+		if (isAdmin == null || isAdmin == false) {
+			res.sendRedirect(req.getContextPath() + "/");
 			return;
 		}
 
