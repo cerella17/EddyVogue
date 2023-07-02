@@ -92,6 +92,8 @@ function FunctionProdotto(code) {
 	</div>
 	<div class="order-table">
 		<table>
+			  <caption>admin table</caption>
+
 			<tr>
 				<th>ID</th>
 				<th>Nome Prodotto</th>
