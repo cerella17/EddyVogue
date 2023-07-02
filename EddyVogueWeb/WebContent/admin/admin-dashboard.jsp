@@ -2,6 +2,19 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+<%
+	
+
+ Collection<?> ordini = (Collection<?>) request.getAttribute("ordini");
+ if(ordini == null) {
+	response.sendRedirect("./dashboardadmin");	
+	return;
+}
+	
+
+%>
 
 
 <!DOCTYPE html>
@@ -23,7 +36,7 @@
 
     <div class="info-container">
       <div class="info">
-        <img src="icons/sales.svg" alt="" />
+        <img src="../icons/sales.svg" alt="" />
         <div class="text-info">
           <p>Vendite Totali</p>
           <h3>5.000€</h3>
@@ -31,18 +44,18 @@
       </div>
 
       <div class="info">
-        <img src="icons/orders.svg" alt="" />
+        <img src="../icons/orders.svg" alt="" />
         <div class="text-info">
           <p>Ordini Totali</p>
-          <h3>303</h3>
+          <h3>5</h3>
         </div>
       </div>
 
       <div class="info">
-        <img src="icons/product.svg" alt="" />
+        <img src="../icons/product.svg" alt="" />
         <div class="text-info">
           <p>Prodotti Totali</p>
-          <h3>1069</h3>
+          <h3>10</h3>
         </div>
       </div>
     </div>
@@ -53,27 +66,36 @@
       </div>
       <div class="order-table">
         <table >
-          <caption>Ordini</caption>
+        	<caption>Ordini</caption>
           <tr>
             <th>ID</th>
-            <th>ID U</th>
-            <th>ID P</th>
+            <th>ID Utente</th>
+            <th>ID Prodotto</th>
             <th>Data</th>
             <th>Indirizzo</th>
             <th>Dettagli</th>
           </tr>
 
-          <tr>
-            <td id="id">1</td>
-            <td id="idu">2</td>
-            <td id="idp">1245</td>
-            <td id="date">12/06/2023</td>
-            <td id="address">Via Alfonso Russo 29</td>
-            <td id="details">Spedito</td>
-            <td>
-              <a href=""><img src="icons/3dots.svg" alt="" /></a>
-            </td>
-          </tr>
+<%
+			if (ordini != null && ordini.size() != 0) {
+				Iterator<?> it = ordini.iterator();
+				while (it.hasNext()) {
+					OrderBean bean = (OrderBean) it.next();
+		%>
+            <tr>
+           
+              <td id="id"><%=bean.getIdOrdine()%></td>
+              <td id="nome"><%=bean.getIdUtente()%></td>
+              <td id="nome"><%=bean.getPb().getCode()%></td>
+              <td><%=bean.getData()%></td>
+              <td><%=bean.getIndirizzo()%></td>
+              <td>
+              </td>
+            </tr>
+            <%
+				}
+			} 
+		%>
 
        
 

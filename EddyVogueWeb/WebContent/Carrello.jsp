@@ -9,6 +9,8 @@ if (cart == null) {
 	response.sendRedirect("./carrello");
 	return;
 }
+
+List<String> errors = (List<String>) request.getAttribute("errors");
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -24,9 +26,19 @@ if (cart == null) {
 </head>
 
 <body>
+	<jsp:include page="includes/NavBar.jsp"></jsp:include>
+
 	<div class="title">
 		<p>Il Tuo Carrello</p>
 	</div>
+	 <% if(errors!=null){ %>
+				<div class="errors-wrapper">
+					<% for (String error : errors) { %>
+					<span>- <%=error%></span>
+					<% } %>
+				</div>
+			<% } %>
+			
 	<%
 	if (cart.getProducts().size() > 0) {
 	%>

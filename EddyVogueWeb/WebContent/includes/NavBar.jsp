@@ -8,6 +8,9 @@
  </style>
 
 
+<%
+Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
+%>
 
 <div class="header">
         <div class="topleft">
@@ -37,6 +40,17 @@
         <div class="topright">
             <a href="/EddyVogueWeb/Carrello.jsp"><img  alt="image" class="user" src="icons/cart.png" ></a>
             <a href="/EddyVogueWeb/user.jsp"><img alt="image" class="user" src="icons/user.png" ></a>
+            <%
+            if(isAdmin){
+          
+            %>
+                        <a href="/EddyVogueWeb/admin/admin-dashboard.jsp"><img alt="image" class="user" src="icons/a.png" ></a>
+                        
+                         <%
+				
+			} 
+		%>
+            
         </div>
   </div>
   

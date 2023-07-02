@@ -27,7 +27,7 @@
 
     <div class="header">
       <div class="middle">
-        <img alt="image" class="logo" src="img/logo.png" />
+        <img alt="image" class="logo" src="../img/logo.png" />
       </div>
     </div>
 
@@ -64,7 +64,6 @@
               <td><%=bean.getData()%></td>
               <td><%=bean.getIndirizzo()%></td>
               <td>
-                <a href=""><img src="icons/3dots.svg" alt="" /></a>
               </td>
             </tr>
             <%
