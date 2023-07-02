@@ -30,6 +30,8 @@ public class User extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/");
 				break;
 			}
+			default:
+				break;
 		}
 	}
 
