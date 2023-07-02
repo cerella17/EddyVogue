@@ -50,7 +50,7 @@
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
 					ProductBean bean = (ProductBean) it.next();
-				
+					if(bean.getQuantity()>0){
 
 		%>
       <div class="product">
@@ -63,6 +63,7 @@
       </div>
       
 <%
+					}
 					
 				}
 			} 

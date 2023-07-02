@@ -36,14 +36,17 @@ function formValidateProfilo(event) {
   let email = document.getElementById("email");
   let nome = document.getElementById("nome");
   let cognome = document.getElementById("cognome");
+    let valid = document.getElementById("result").textContent;
 
   let isValid = true;
 
   // Esegue la validazione di ogni campo e tiene traccia del risultato complessivo
-  isValid = email_validate(email, "email-error") && isValid;
+  isValid = email_validate(email, "email-error") && isValid && valid!="false";
   isValid = allLetter(nome, "nome-error", "nome") && isValid;
   isValid = allLetter(cognome, "cognome-error", "cognome") && isValid;
+  
 
+   isValid = false;
   // Se ci sono errori, impedisce l'invio del modulo
   if (!isValid) {
     return isValid;

@@ -20,8 +20,15 @@
   <div class="signin">
     <div class="signin-container">
       <p>REGISTRATI</p>
+       <% if(errors!=null){ %>
+				<div class="errors-wrapper">
+					<% for (String error : errors) { %>
+					<span>- <%=error%></span>
+					<% } %>
+				</div>
+			<% } %>
       
-      <form name="registrati" onsubmit="return formValidate()">
+      <form name="registrati" onsubmit="return formValidate()" method="post" action="user?action=registrati">
         <div class="form-field">
           
           <input id="email" name="email" type="text" placeholder="Email" required autofocus >
@@ -65,14 +72,14 @@
 
 
         <div class="form-field">
-          <input id="CAP" name="CAP" type="text" placeholder="CAP" required />
+          <input id="cap" name="cap" type="text" placeholder="cap" required />
         </div>
         <div id="cap-error" class="error-message"></div>
 
 
 
-        <div class="form-field">
-          <input id="pass" name="pass" type="password" placeholder="Password" required />
+             <div class="form-field">
+          <input type="password" placeholder="Password" name="password" id="password" required />
         </div>
         <div id="pass-error" class="error-message"></div>
 

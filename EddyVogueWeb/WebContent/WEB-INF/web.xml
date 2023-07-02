@@ -68,6 +68,8 @@
   </servlet-mapping>
   
   
+  
+  
     <servlet>
     <servlet-name>ordiniutente</servlet-name>
     <servlet-class>eddy.vogue.control.OrdiniController</servlet-class>
@@ -86,6 +88,35 @@
     <url-pattern>/admin/ordiniutenti</url-pattern>
   </servlet-mapping>
   
+       <servlet>
+    <servlet-name>dashboardadmin</servlet-name>
+    <servlet-class>eddy.vogue.control.OrdiniAdminControllerDash</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dashboardadmin</servlet-name>
+    <url-pattern>/admin/dashboardadmin</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>Prodotti</servlet-name>
+    <servlet-class>eddy.vogue.control.AdminProductControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Prodotti</servlet-name>
+    <url-pattern>/admin/prodottiadmin</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>UserAdmin</servlet-name>
+    <servlet-class>eddy.vogue.control.AdminUserControl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAdmin</servlet-name>
+    <url-pattern>/admin/useradmin</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 
   
   <servlet>
@@ -95,7 +126,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AddProduct</servlet-name>
-    <url-pattern>/addproduct</url-pattern>
+    <url-pattern>/admin/addproduct</url-pattern>
   </servlet-mapping>
   
   <servlet>

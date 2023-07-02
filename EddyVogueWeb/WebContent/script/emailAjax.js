@@ -1,14 +1,17 @@
 
 $(document).ready(function(){
-	$('email').change(function(){
+	$('#email').change(function(){
+		console.log("change")
 		
-		let email = $('#email').val();
+		var email = $('#email').val();
 		$.ajax({
 			type: 'POST',
 			data:{email:email},
-			url: '/controllers/user',
+			url: 'AjaxEmailController',
 			success: function(result){
-				$('result').html(result);
+console.log(result)				
+				$('#result').text(result.success)
+
 			}
 		});
 	});

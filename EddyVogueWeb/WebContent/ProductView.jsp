@@ -68,6 +68,7 @@
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
 					ProductBean bean = (ProductBean) it.next();
+					if(bean.getQuantity()>0){
 		%>
       <div class="product">
         <a href="./Prodotto.jsp?id=<%=bean.getCode()%>"> <img class="imgbox" src="getImage?id=<%=bean.getCode() %>" alt="Immagine del prodotto"/></a>
@@ -78,6 +79,7 @@
         </div>
       </div>
 <%
+					}
 				}
 			} 
 		%>

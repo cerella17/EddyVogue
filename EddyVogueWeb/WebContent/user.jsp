@@ -24,9 +24,13 @@
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="styles/user.css" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+      
       <script src="script/registration-form-validate.js"></script>
         <script src="script/modifica.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+         <script src="script/emailAjax.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+        
 <script type="text/javascript">
        function fattura(prezzo,ordine){
     	   var doc = new jsPDF()
@@ -38,6 +42,9 @@
 
     	doc.save('fattura.pdf')	
       }
+       
+
+
   </script>
       
       
@@ -92,12 +99,15 @@
                 <span id="cognome-error"></span><br />
                 <label for="lname">Email:</label><br />
                 <input id="email" name="email" type="text" value="<%=usr.getEmail()%>" />
+                 <span id="result"></span>
                 <span id="email-error"></span>
                 <br /><br />
                 <button class="btn" type="submit" value="Submit">Aggiorna</button>
               </form>
             </div>
           </div>
+          
+         
 
           <div class="user-address">
             <div class="title">
