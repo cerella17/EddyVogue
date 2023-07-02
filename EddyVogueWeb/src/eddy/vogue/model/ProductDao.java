@@ -37,7 +37,6 @@ public class ProductDao implements ProductModel {
 	@Override
 	public synchronized void doSave(ProductBean product) throws SQLException {
 		
-		System.out.println("Do save fun");
 
 
 		Connection connection = null;
@@ -64,7 +63,6 @@ public class ProductDao implements ProductModel {
 		} 
 		catch(SQLException  e) {
 		
-				System.out.println(e);
 
 			
 		}
@@ -111,7 +109,6 @@ public class ProductDao implements ProductModel {
 		} 
 		catch(SQLException  e) {
 		
-				System.out.println(e);
 
 			
 		}
@@ -223,7 +220,6 @@ public class ProductDao implements ProductModel {
 		} 
 		catch(SQLException  e) {
 			
-			System.out.println(e);
 
 		
 	}
