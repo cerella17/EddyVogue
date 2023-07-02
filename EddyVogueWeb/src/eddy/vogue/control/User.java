@@ -43,7 +43,7 @@ public class User extends HttpServlet {
 			response.getWriter().write("?action= misses");
 			return;
 		}
-		if(action =="getAllUser") {
+		if(action.equals("getAllUser")) {
 			try {
 				List<UserBean> users = userDao.doRetrieveAll();
 				request.setAttribute("listaUser",users);
@@ -56,7 +56,7 @@ public class User extends HttpServlet {
 		}
 		String email = request.getParameter("email");
 
-		if(action =="checkEmail") {
+		if(action.equals("checkEmail")) {
 			try {
 				
 			
