@@ -29,7 +29,6 @@ public class AjaxEmailController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("etro");
 		
 		response.setContentType("application/json");
         PrintWriter out = response.getWriter();
